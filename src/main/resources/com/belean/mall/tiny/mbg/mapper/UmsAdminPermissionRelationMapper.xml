@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.belean.mall.tiny.mbg.mapper.UmsAdminPermissionRelationMapper">
+
+    <resultMap id="BaseResultMap" type="com.belean.mall.tiny.mbg.model.UmsAdminPermissionRelation">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="adminId" column="admin_id" jdbcType="BIGINT"/>
+        <result property="permissionId" column="permission_id" jdbcType="BIGINT"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,`admin_id`,`permission_id`,
+        `type`
+    </sql>
+</mapper>

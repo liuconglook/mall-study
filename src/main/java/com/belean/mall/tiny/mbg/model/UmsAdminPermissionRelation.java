@@ -1,0 +1,46 @@
+package com.belean.mall.tiny.mbg.model;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import org.hibernate.validator.constraints.Length;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
+
+/**
+* 后台用户和权限关系表(除角色中定义的权限以外的加减权限)
+* @TableName ums_admin_permission_relation
+*/
+@Schema(description = "后台用户和权限关系表(除角色中定义的权限以外的加减权限)")
+@TableName(value = "ums_admin_permission_relation")
+@Getter
+@Setter
+@ToString
+public class UmsAdminPermissionRelation {
+
+
+    /**
+    * 
+    */
+    @TableId(value = "id", type = IdType.NONE)
+    @Schema(description = "")
+    private Long id;
+
+    /**
+    * 
+    */
+    @Schema(description = "")
+    private Long adminId;
+
+    /**
+    * 
+    */
+    @Schema(description = "")
+    private Long permissionId;
+
+    /**
+    * 
+    */
+    @Schema(description = "")
+    private Integer type;
+}

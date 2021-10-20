@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.belean.mall.tiny.mbg.mapper.PmsBrandMapper">
+
+    <resultMap id="BaseResultMap" type="com.belean.mall.tiny.mbg.model.PmsBrand">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="first_letter" column="first_letter" jdbcType="VARCHAR"/>
+            <result property="sort" column="sort" jdbcType="INTEGER"/>
+            <result property="factory_status" column="factory_status" jdbcType="INTEGER"/>
+            <result property="show_status" column="show_status" jdbcType="INTEGER"/>
+            <result property="product_count" column="product_count" jdbcType="INTEGER"/>
+            <result property="product_comment_count" column="product_comment_count" jdbcType="INTEGER"/>
+            <result property="logo" column="logo" jdbcType="VARCHAR"/>
+            <result property="big_pic" column="big_pic" jdbcType="VARCHAR"/>
+            <result property="brand_story" column="brand_story" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,first_letter,
+        sort,factory_status,show_status,
+        product_count,product_comment_count,logo,
+        big_pic,brand_story
+    </sql>
+</mapper>

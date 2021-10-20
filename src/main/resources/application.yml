@@ -1,0 +1,61 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /mall
+spring:
+  profiles:
+    active: "@profiles.active@" # 默认dev
+  data:
+    elasticsearch:
+      client:
+        reactive:
+          endpoints: 127.0.0.1:9200
+          username: elasticsearch
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mall-port
+  rabbitmq:
+    host: 1.116.23.127 # rabbitmq的连接地址
+    port: 5672 # rabbitmq的连接端口号
+    virtual-host: /mall # rabbitmq的虚拟host
+    username: mall # rabbitmq的用户名
+    password: mall # rabbitmq的密码
+    publisher-confirms: true #如果对异步消息需要回调必须设置为true
+management:
+  health:
+    rabbit:
+      enabled: false
+
+# mybatis-plus
+mybatis-plus:
+  mapper-locations:
+    - classpath:mapper/*.xml
+    - classpath*:com/**mapper/*.xml
+    - classpath:com/**dao/*.xml
+  type-aliases-package: com.belean.mall.tiny.mbg.model
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true # 开启二级缓存
+    map-underscore-to-camel-case: true # 开启驼峰命名
+
+# log4j2
+logging:
+  config: classpath:log4j2-spring.xml # 默认 log4j2-spring.xml
+  level:
+    cn.jay.repository: trace
+
+# 自定义 redis key
+redis:
+  key:
+    prefix: # key前缀
+      authCode: "portal:authCode:" # 验证码key，:分隔符的key，类似包的命名，可以分目录查看
+    expire: # 过期时间
+      authCode: 120 # 验证码超期时间
+
+# 自定义jwt key
+jwt:
+  tokenHeader: Authorization # JWT存储的请求头
+  secret: mySecret # JWT加解密使用的密钥
+  expiration: 604800 # JWT的超期限时间(60*60*24)
+  tokenHead: Bearer  # JWT负载中拿到开头
